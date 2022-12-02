@@ -48,6 +48,14 @@ export default {
       }
       this.$emit('on-user', this.userId);
     }
+  },
+  mounted() {
+    this.userId = null;
+  },
+  watch: {
+    isSearch() {
+      this.userId = null;
+    }
   }
 }
 </script>
