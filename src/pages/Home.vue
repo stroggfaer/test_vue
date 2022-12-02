@@ -18,13 +18,11 @@
 <script>
 
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import Container from "@/components/Container";
 import InputSearchUl from "@/components/ul/input-search-ul";
-import SpinnerUl from "@/components/ul/spinner-ul";
 import ViewUser from "@/components/user/view-user";
 import ListUser from "@/components/user/list-user";
-import {FETCH_USER, FETCH_USERS, GET_USER, RESET_USER, RESET_USERS} from "@/store/users";
+import {FETCH_USER, FETCH_USERS, RESET_USER, RESET_USERS} from "@/store/users";
 
 export default {
   name: "home",
@@ -32,15 +30,12 @@ export default {
   components: {
     ListUser,
     ViewUser,
-    SpinnerUl,
     InputSearchUl,
     Container,
-    Footer,
     Header
   },
   data() {
     return {
-      search: '',
       isSearch: false,
     }
   },
@@ -48,15 +43,12 @@ export default {
   methods: {
 
     async handleSearch (v) {
-      this.search = v;
       const params = {search: v}
       await this.fetchUsers(params);
       this.isSearch = true;
-
     },
 
     async handleClearSearch() {
-       this.search = '';
        this.isSearch = false;
        await this.$store.dispatch(RESET_USERS);
        await this.$store.dispatch(RESET_USER);
@@ -77,18 +69,14 @@ export default {
          await this.$store.dispatch(RESET_USER)
        }
     }
-
   },
 
-  mounted() {
-    this.$nextTick(async () => {});
-  }
+  mounted() {}
 }
 </script>
 
 <style scoped lang="scss">
  .main {
-  // width: 975px;
    flex: auto;
    padding: 25px;
    &.active {
@@ -107,14 +95,5 @@ export default {
    .title,.search-input {
      margin-bottom: 20px;
    }
-   .default {
-
-   }
  }
-
-
-
-
-
-
 </style>
