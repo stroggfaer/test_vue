@@ -3,7 +3,6 @@
 ```
 Стек   vue2  SPA + SCSS  
 ```
-
 ```
 Установить node не ниже v 14  
 `$ npm install` - установка пакет node modules
